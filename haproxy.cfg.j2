@@ -1,0 +1,25 @@
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    user haproxy
+    group haproxy
+    daemon
+
+defaults
+    log global
+    mode http
+    option httplog
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
+
+frontend http_front
+    bind *:80
+    default_backend web_back
+
+backend web_back
+    balance roundrobin
+    # Ansible will dynamically insert the web servers here
+    {% for host in groups['web_servers'] %}
+    server web-{{ loop.index }} {{ host }}:80 check
+    {% endfor %}

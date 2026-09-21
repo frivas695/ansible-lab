@@ -1,0 +1,16 @@
+qemu/kvm name: ubuntu-server1
+hostname: ansible-server
+username: ubuntu-server
+passwd: ansible
+
+qemu/kvm name: ubuntu-server2
+hostname: ubuntu-server2
+username: ubuntu2
+passwd: ansible
+
+qemu/kvm name: ubuntu-server3
+hostname: ansible-server
+username: ubuntu-server
+passwd: ansible
+
+
