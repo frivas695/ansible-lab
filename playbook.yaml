@@ -6,5 +6,5 @@
 
    - name: Print message
      ansible.builtin.debug:
-       msg: Hello world
+       msg: Hello world, I am pinging my vm web servers using an ansible playbook. 
 
